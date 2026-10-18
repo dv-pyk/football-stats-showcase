@@ -1,0 +1,35 @@
+# Xcode / build
+.build/
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# SwiftPM
+.swiftpm/
+Package.resolved
+
+# Preview / harness artefacts (keep sources, ignore binaries & captures)
+.render-preview/render
+.render-preview/verify
+.render-preview/seed
+.render-preview/*.png
+
+# Local match backups (contain personal match data)
+Football-Stats-Backup*.json
+*.backup.json
+/exports/
+
+# Claude Code personal settings (machine-specific permission allowlist)
+.claude/settings.local.json

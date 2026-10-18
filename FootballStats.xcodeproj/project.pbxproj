@@ -1,0 +1,732 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2755AB8C2FFB999200956421 /* MatchObservationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000036 /* MatchObservationEngine.swift */; };
+		A10000010000000000000001 /* FootballStatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000001 /* FootballStatsApp.swift */; };
+		A10000010000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000002 /* ContentView.swift */; };
+		A10000010000000000000003 /* MatchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000003 /* MatchModels.swift */; };
+		A10000010000000000000004 /* MatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000004 /* MatchViewModel.swift */; };
+		A10000010000000000000005 /* MatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000005 /* MatchSetupView.swift */; };
+		A10000010000000000000006 /* LiveMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000006 /* LiveMatchView.swift */; };
+		A10000010000000000000007 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000007 /* SummaryView.swift */; };
+		A10000010000000000000008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000008 /* Assets.xcassets */; };
+		A10000010000000000000009 /* PossessionChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000009 /* PossessionChartView.swift */; };
+		A10000010000000000000010 /* ShotOutcomeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000010 /* ShotOutcomeIcons.swift */; };
+		A10000010000000000000069 /* ShotTileIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000069 /* ShotTileIcons.swift */; };
+		A10000010000000000000071 /* PressureLaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000071 /* PressureLaneView.swift */; };
+		A10000010000000000000072 /* PressureNarration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000072 /* PressureNarration.swift */; };
+		A10000010000000000000073 /* PressureLedgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000073 /* PressureLedgerView.swift */; };
+		A10000010000000000000074 /* RosterModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000074 /* RosterModels.swift */; };
+		A10000010000000000000075 /* RosterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000075 /* RosterStore.swift */; };
+		A10000010000000000000076 /* RosterEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000076 /* RosterEditorView.swift */; };
+		A10000010000000000000077 /* PlayerEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000077 /* PlayerEditorView.swift */; };
+		A10000010000000000000078 /* PlayerCreditPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000078 /* PlayerCreditPickerView.swift */; };
+		A10000010000000000000079 /* StandoutMomentEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000079 /* StandoutMomentEngine.swift */; };
+		A10000010000000000000063 /* SetPieceIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000063 /* SetPieceIcons.swift */; };
+		A10000010000000000000064 /* NeonShotIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000064 /* NeonShotIcons.swift */; };
+		A10000010000000000000068 /* SetPieceArtIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000068 /* SetPieceArtIcons.swift */; };
+		A10000010000000000000067 /* NeonSetPieceIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000067 /* NeonSetPieceIcons.swift */; };
+		A10000010000000000000066 /* NeonKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000066 /* NeonKit.swift */; };
+		A10000010000000000000065 /* IconGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000065 /* IconGalleryView.swift */; };
+		A10000010000000000000011 /* PressureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000011 /* PressureEngine.swift */; };
+		A10000010000000000000070 /* PressureExplain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000070 /* PressureExplain.swift */; };
+		A10000010000000000000012 /* MatchHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000012 /* MatchHistoryStore.swift */; };
+		A10000010000000000000013 /* MatchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000013 /* MatchHistoryView.swift */; };
+		A10000010000000000000017 /* FootballStatsWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000016 /* FootballStatsWidgetBundle.swift */; };
+		A10000010000000000000019 /* FootballStatsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A10000030000000000000002 /* FootballStatsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A10000010000000000000020 /* PressureMiniChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000020 /* PressureMiniChartView.swift */; };
+		A10000010000000000000021 /* PressureMiniChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000020 /* PressureMiniChartView.swift */; };
+		A10000010000000000000022 /* MatchEventProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000022 /* MatchEventProcessor.swift */; };
+		A10000010000000000000023 /* ActiveMatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000023 /* ActiveMatchStore.swift */; };
+		A10000010000000000000025 /* MatchIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000025 /* MatchIntents.swift */; };
+		A10000010000000000000026 /* MatchEventProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000022 /* MatchEventProcessor.swift */; };
+		A10000010000000000000027 /* ActiveMatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000023 /* ActiveMatchStore.swift */; };
+		A10000010000000000000029 /* MatchIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000025 /* MatchIntents.swift */; };
+		A10000010000000000000030 /* MatchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000003 /* MatchModels.swift */; };
+		A10000010000000000000031 /* PressureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000011 /* PressureEngine.swift */; };
+		A10000010000000000000032 /* MatchControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000028 /* MatchControls.swift */; };
+		A10000010000000000000038 /* SummaryCopyableCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000038 /* SummaryCopyableCard.swift */; };
+		A10000010000000000000039 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000039 /* HapticFeedback.swift */; };
+		A10000010000000000000040 /* MatchComparisonEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000040 /* MatchComparisonEngine.swift */; };
+		A10000010000000000000041 /* MatchHistoryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000041 /* MatchHistoryEditView.swift */; };
+		A10000010000000000000042 /* MatchObservationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000036 /* MatchObservationEngine.swift */; };
+		A10000010000000000000043 /* TeamDisplayNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000043 /* TeamDisplayNames.swift */; };
+		A10000010000000000000044 /* ActiveMatchCrossProcessNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000044 /* ActiveMatchCrossProcessNotifier.swift */; };
+		A10000010000000000000045 /* TeamDisplayNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000043 /* TeamDisplayNames.swift */; };
+		A10000010000000000000046 /* ActiveMatchCrossProcessNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000044 /* ActiveMatchCrossProcessNotifier.swift */; };
+		A10000010000000000000047 /* ClipboardImageExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000047 /* ClipboardImageExport.swift */; };
+		A10000010000000000000056 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000020000000000000052 /* AppIntents.framework */; };
+		A10000010000000000000057 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000020000000000000052 /* AppIntents.framework */; };
+		A10000010000000000000060 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000020000000000000054 /* WidgetKit.framework */; };
+		A10000010000000000000061 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000055 /* AppShortcuts.swift */; };
+		A10000010000000000000062 /* MatchHistoryBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000062 /* MatchHistoryBackup.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A100000E0000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A100000A0000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A10000060000000000000002;
+			remoteInfo = FootballStatsWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A100000C0000000000000001 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A10000010000000000000019 /* FootballStatsWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A10000020000000000000001 /* FootballStatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballStatsApp.swift; sourceTree = "<group>"; };
+		A10000020000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A10000020000000000000003 /* MatchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModels.swift; sourceTree = "<group>"; };
+		A10000020000000000000004 /* MatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewModel.swift; sourceTree = "<group>"; };
+		A10000020000000000000005 /* MatchSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetupView.swift; sourceTree = "<group>"; };
+		A10000020000000000000006 /* LiveMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMatchView.swift; sourceTree = "<group>"; };
+		A10000020000000000000007 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		A10000020000000000000008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A10000020000000000000009 /* PossessionChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossessionChartView.swift; sourceTree = "<group>"; };
+		A10000020000000000000010 /* ShotOutcomeIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotOutcomeIcons.swift; sourceTree = "<group>"; };
+		A10000020000000000000069 /* ShotTileIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotTileIcons.swift; sourceTree = "<group>"; };
+		A10000020000000000000071 /* PressureLaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureLaneView.swift; sourceTree = "<group>"; };
+		A10000020000000000000072 /* PressureNarration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureNarration.swift; sourceTree = "<group>"; };
+		A10000020000000000000073 /* PressureLedgerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureLedgerView.swift; sourceTree = "<group>"; };
+		A10000020000000000000074 /* RosterModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterModels.swift; sourceTree = "<group>"; };
+		A10000020000000000000075 /* RosterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterStore.swift; sourceTree = "<group>"; };
+		A10000020000000000000076 /* RosterEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterEditorView.swift; sourceTree = "<group>"; };
+		A10000020000000000000077 /* PlayerEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEditorView.swift; sourceTree = "<group>"; };
+		A10000020000000000000078 /* PlayerCreditPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCreditPickerView.swift; sourceTree = "<group>"; };
+		A10000020000000000000079 /* StandoutMomentEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandoutMomentEngine.swift; sourceTree = "<group>"; };
+		A10000020000000000000063 /* SetPieceIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPieceIcons.swift; sourceTree = "<group>"; };
+		A10000020000000000000064 /* NeonShotIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonShotIcons.swift; sourceTree = "<group>"; };
+		A10000020000000000000068 /* SetPieceArtIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPieceArtIcons.swift; sourceTree = "<group>"; };
+		A10000020000000000000067 /* NeonSetPieceIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonSetPieceIcons.swift; sourceTree = "<group>"; };
+		A10000020000000000000066 /* NeonKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonKit.swift; sourceTree = "<group>"; };
+		A10000020000000000000065 /* IconGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGalleryView.swift; sourceTree = "<group>"; };
+		A10000020000000000000011 /* PressureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureEngine.swift; sourceTree = "<group>"; };
+		A10000020000000000000070 /* PressureExplain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureExplain.swift; sourceTree = "<group>"; };
+		A10000020000000000000012 /* MatchHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryStore.swift; sourceTree = "<group>"; };
+		A10000020000000000000013 /* MatchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryView.swift; sourceTree = "<group>"; };
+		A10000020000000000000016 /* FootballStatsWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballStatsWidgetBundle.swift; sourceTree = "<group>"; };
+		A10000020000000000000018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000020000000000000019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000020000000000000020 /* PressureMiniChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureMiniChartView.swift; sourceTree = "<group>"; };
+		A10000020000000000000022 /* MatchEventProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEventProcessor.swift; sourceTree = "<group>"; };
+		A10000020000000000000023 /* ActiveMatchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMatchStore.swift; sourceTree = "<group>"; };
+		A10000020000000000000025 /* MatchIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchIntents.swift; sourceTree = "<group>"; };
+		A10000020000000000000028 /* MatchControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchControls.swift; sourceTree = "<group>"; };
+		A10000020000000000000034 /* FootballStats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FootballStats.entitlements; sourceTree = "<group>"; };
+		A10000020000000000000035 /* FootballStatsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FootballStatsWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A10000020000000000000036 /* MatchObservationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchObservationEngine.swift; sourceTree = "<group>"; };
+		A10000020000000000000038 /* SummaryCopyableCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCopyableCard.swift; sourceTree = "<group>"; };
+		A10000020000000000000039 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		A10000020000000000000040 /* MatchComparisonEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchComparisonEngine.swift; sourceTree = "<group>"; };
+		A10000020000000000000041 /* MatchHistoryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryEditView.swift; sourceTree = "<group>"; };
+		A10000020000000000000043 /* TeamDisplayNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDisplayNames.swift; sourceTree = "<group>"; };
+		A10000020000000000000044 /* ActiveMatchCrossProcessNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMatchCrossProcessNotifier.swift; sourceTree = "<group>"; };
+		A10000020000000000000047 /* ClipboardImageExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardImageExport.swift; sourceTree = "<group>"; };
+		A10000020000000000000052 /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
+		A10000020000000000000054 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A10000020000000000000055 /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
+		A10000020000000000000062 /* MatchHistoryBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryBackup.swift; sourceTree = "<group>"; };
+		A10000030000000000000001 /* FootballStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000030000000000000002 /* FootballStatsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FootballStatsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000040000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000056 /* AppIntents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000040000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000057 /* AppIntents.framework in Frameworks */,
+				A10000010000000000000060 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2755AB8D2FFB999200956421 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000052 /* AppIntents.framework */,
+				A10000020000000000000054 /* WidgetKit.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A10000050000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A10000050000000000000002 /* FootballStats */,
+				A10000050000000000000008 /* Shared */,
+				A10000050000000000000009 /* FootballStatsWidget */,
+				A10000050000000000000003 /* Products */,
+				2755AB8D2FFB999200956421 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000050000000000000002 /* FootballStats */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000001 /* FootballStatsApp.swift */,
+				A10000020000000000000055 /* AppShortcuts.swift */,
+				A10000020000000000000002 /* ContentView.swift */,
+				A10000050000000000000004 /* Models */,
+				A10000050000000000000005 /* ViewModels */,
+				A10000050000000000000007 /* Services */,
+				A10000050000000000000006 /* Views */,
+				A10000020000000000000008 /* Assets.xcassets */,
+				A10000020000000000000019 /* Info.plist */,
+				A10000020000000000000034 /* FootballStats.entitlements */,
+			);
+			path = FootballStats;
+			sourceTree = "<group>";
+		};
+		A10000050000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10000030000000000000001 /* FootballStats.app */,
+				A10000030000000000000002 /* FootballStatsWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A10000050000000000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000003 /* MatchModels.swift */,
+				A10000020000000000000011 /* PressureEngine.swift */,
+				A10000020000000000000070 /* PressureExplain.swift */,
+				A10000020000000000000036 /* MatchObservationEngine.swift */,
+				A10000020000000000000040 /* MatchComparisonEngine.swift */,
+				A10000020000000000000074 /* RosterModels.swift */,
+				A10000020000000000000079 /* StandoutMomentEngine.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A10000050000000000000005 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000004 /* MatchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A10000050000000000000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000005 /* MatchSetupView.swift */,
+				A10000020000000000000006 /* LiveMatchView.swift */,
+				A10000020000000000000007 /* SummaryView.swift */,
+				A10000020000000000000038 /* SummaryCopyableCard.swift */,
+				A10000020000000000000041 /* MatchHistoryEditView.swift */,
+				A10000020000000000000009 /* PossessionChartView.swift */,
+				A10000020000000000000010 /* ShotOutcomeIcons.swift */,
+				A10000020000000000000069 /* ShotTileIcons.swift */,
+				A10000020000000000000071 /* PressureLaneView.swift */,
+				A10000020000000000000072 /* PressureNarration.swift */,
+				A10000020000000000000073 /* PressureLedgerView.swift */,
+				A10000020000000000000063 /* SetPieceIcons.swift */,
+				A10000020000000000000064 /* NeonShotIcons.swift */,
+				A10000020000000000000068 /* SetPieceArtIcons.swift */,
+				A10000020000000000000067 /* NeonSetPieceIcons.swift */,
+				A10000020000000000000066 /* NeonKit.swift */,
+				A10000020000000000000065 /* IconGalleryView.swift */,
+				A10000020000000000000013 /* MatchHistoryView.swift */,
+				A10000020000000000000076 /* RosterEditorView.swift */,
+				A10000020000000000000077 /* PlayerEditorView.swift */,
+				A10000020000000000000078 /* PlayerCreditPickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A10000050000000000000007 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000012 /* MatchHistoryStore.swift */,
+				A10000020000000000000062 /* MatchHistoryBackup.swift */,
+				A10000020000000000000039 /* HapticFeedback.swift */,
+				A10000020000000000000075 /* RosterStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A10000050000000000000008 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000020 /* PressureMiniChartView.swift */,
+				A10000020000000000000022 /* MatchEventProcessor.swift */,
+				A10000020000000000000023 /* ActiveMatchStore.swift */,
+				A10000020000000000000043 /* TeamDisplayNames.swift */,
+				A10000020000000000000044 /* ActiveMatchCrossProcessNotifier.swift */,
+				A10000020000000000000047 /* ClipboardImageExport.swift */,
+				A10000020000000000000025 /* MatchIntents.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A10000050000000000000009 /* FootballStatsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000016 /* FootballStatsWidgetBundle.swift */,
+				A10000020000000000000028 /* MatchControls.swift */,
+				A10000020000000000000018 /* Info.plist */,
+				A10000020000000000000035 /* FootballStatsWidgetExtension.entitlements */,
+			);
+			path = FootballStatsWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000060000000000000001 /* FootballStats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000090000000000000003 /* Build configuration list for PBXNativeTarget "FootballStats" */;
+			buildPhases = (
+				A10000070000000000000001 /* Sources */,
+				A10000040000000000000001 /* Frameworks */,
+				A10000080000000000000001 /* Resources */,
+				A100000C0000000000000001 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A100000F0000000000000001 /* PBXTargetDependency */,
+			);
+			name = FootballStats;
+			productName = FootballStats;
+			productReference = A10000030000000000000001 /* FootballStats.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A10000060000000000000002 /* FootballStatsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000090000000000000004 /* Build configuration list for PBXNativeTarget "FootballStatsWidgetExtension" */;
+			buildPhases = (
+				A10000070000000000000002 /* Sources */,
+				A10000040000000000000002 /* Frameworks */,
+				A10000080000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FootballStatsWidgetExtension;
+			productName = FootballStatsWidgetExtension;
+			productReference = A10000030000000000000002 /* FootballStatsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A100000A0000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					A10000060000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A10000060000000000000002 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A10000090000000000000001 /* Build configuration list for PBXProject "FootballStats" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A10000050000000000000001;
+			productRefGroup = A10000050000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10000060000000000000001 /* FootballStats */,
+				A10000060000000000000002 /* FootballStatsWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10000080000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000008 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000080000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000070000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000001 /* FootballStatsApp.swift in Sources */,
+				A10000010000000000000061 /* AppShortcuts.swift in Sources */,
+				A10000010000000000000002 /* ContentView.swift in Sources */,
+				A10000010000000000000003 /* MatchModels.swift in Sources */,
+				A10000010000000000000011 /* PressureEngine.swift in Sources */,
+				A10000010000000000000070 /* PressureExplain.swift in Sources */,
+				2755AB8C2FFB999200956421 /* MatchObservationEngine.swift in Sources */,
+				A10000010000000000000040 /* MatchComparisonEngine.swift in Sources */,
+				A10000010000000000000004 /* MatchViewModel.swift in Sources */,
+				A10000010000000000000005 /* MatchSetupView.swift in Sources */,
+				A10000010000000000000006 /* LiveMatchView.swift in Sources */,
+				A10000010000000000000007 /* SummaryView.swift in Sources */,
+				A10000010000000000000038 /* SummaryCopyableCard.swift in Sources */,
+				A10000010000000000000009 /* PossessionChartView.swift in Sources */,
+				A10000010000000000000010 /* ShotOutcomeIcons.swift in Sources */,
+				A10000010000000000000069 /* ShotTileIcons.swift in Sources */,
+				A10000010000000000000071 /* PressureLaneView.swift in Sources */,
+				A10000010000000000000072 /* PressureNarration.swift in Sources */,
+				A10000010000000000000073 /* PressureLedgerView.swift in Sources */,
+				A10000010000000000000063 /* SetPieceIcons.swift in Sources */,
+				A10000010000000000000064 /* NeonShotIcons.swift in Sources */,
+				A10000010000000000000068 /* SetPieceArtIcons.swift in Sources */,
+				A10000010000000000000067 /* NeonSetPieceIcons.swift in Sources */,
+				A10000010000000000000066 /* NeonKit.swift in Sources */,
+				A10000010000000000000065 /* IconGalleryView.swift in Sources */,
+				A10000010000000000000012 /* MatchHistoryStore.swift in Sources */,
+				A10000010000000000000062 /* MatchHistoryBackup.swift in Sources */,
+				A10000010000000000000013 /* MatchHistoryView.swift in Sources */,
+				A10000010000000000000020 /* PressureMiniChartView.swift in Sources */,
+				A10000010000000000000039 /* HapticFeedback.swift in Sources */,
+				A10000010000000000000041 /* MatchHistoryEditView.swift in Sources */,
+				A10000010000000000000022 /* MatchEventProcessor.swift in Sources */,
+				A10000010000000000000023 /* ActiveMatchStore.swift in Sources */,
+				A10000010000000000000043 /* TeamDisplayNames.swift in Sources */,
+				A10000010000000000000044 /* ActiveMatchCrossProcessNotifier.swift in Sources */,
+				A10000010000000000000047 /* ClipboardImageExport.swift in Sources */,
+				A10000010000000000000025 /* MatchIntents.swift in Sources */,
+				A10000010000000000000074 /* RosterModels.swift in Sources */,
+				A10000010000000000000075 /* RosterStore.swift in Sources */,
+				A10000010000000000000076 /* RosterEditorView.swift in Sources */,
+				A10000010000000000000077 /* PlayerEditorView.swift in Sources */,
+				A10000010000000000000078 /* PlayerCreditPickerView.swift in Sources */,
+				A10000010000000000000079 /* StandoutMomentEngine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000070000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000021 /* PressureMiniChartView.swift in Sources */,
+				A10000010000000000000017 /* FootballStatsWidgetBundle.swift in Sources */,
+				A10000010000000000000032 /* MatchControls.swift in Sources */,
+				A10000010000000000000029 /* MatchIntents.swift in Sources */,
+				A10000010000000000000026 /* MatchEventProcessor.swift in Sources */,
+				A10000010000000000000027 /* ActiveMatchStore.swift in Sources */,
+				A10000010000000000000030 /* MatchModels.swift in Sources */,
+				A10000010000000000000031 /* PressureEngine.swift in Sources */,
+				A10000010000000000000042 /* MatchObservationEngine.swift in Sources */,
+				A10000010000000000000045 /* TeamDisplayNames.swift in Sources */,
+				A10000010000000000000046 /* ActiveMatchCrossProcessNotifier.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A100000F0000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A10000060000000000000002 /* FootballStatsWidgetExtension */;
+			targetProxy = A100000E0000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A100000B0000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A100000B0000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A100000B0000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FootballStats/FootballStats.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FootballStats/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Football Stats";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.footballstats.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "MAIN_APP $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A100000B0000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FootballStats/FootballStats.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FootballStats/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Football Stats";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.footballstats.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "MAIN_APP $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A100000B0000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = FootballStatsWidget/FootballStatsWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FootballStatsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FootballStatsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.footballstats.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A100000B0000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = FootballStatsWidget/FootballStatsWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FootballStatsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FootballStatsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.footballstats.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000090000000000000001 /* Build configuration list for PBXProject "FootballStats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A100000B0000000000000001 /* Debug */,
+				A100000B0000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000090000000000000003 /* Build configuration list for PBXNativeTarget "FootballStats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A100000B0000000000000003 /* Debug */,
+				A100000B0000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000090000000000000004 /* Build configuration list for PBXNativeTarget "FootballStatsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A100000B0000000000000005 /* Debug */,
+				A100000B0000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A100000A0000000000000001 /* Project object */;
+}
