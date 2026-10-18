@@ -1,6 +1,21 @@
 # Football Stats
 
-A simple iPhone app for tracking U13 kids' football matches from the sideline. Built with SwiftUI for iOS 18+.
+A simple iPhone app for tracking kids', community, casual and club football matches from the sideline. Built with SwiftUI for iOS 18+.
+
+## Why
+
+The intention is to help teams improve by noticing recurring patterns. A scoreline hides most
+of what happened in a match, and a single game is easy to misread. Recording the whole match
+consistently (passes, possession, every attempt, set pieces) and keeping every game makes the
+patterns visible from one match to the next: the chances that keep going wide, the spells where
+the opposition takes over, who is creating chances and who is stopping them. Each match is
+turned into a pressure chart and plain-English observations that a coach or parent can act on.
+
+**Attempts, not just goals.** The emphasis is on attempts made, which rewards more than the
+players who score. Goalkeepers get their saves recorded, with "big saves" on easy chances
+credited by name, and a defender's block is counted separately from a keeper's save so it isn't
+lost inside the keeper's numbers. Goals, big saves and blocks all show up in the Summary, and
+the standout moments call out a keeper standing tall or a clean sheet despite shots on target.
 
 ## About this project
 
