@@ -29,6 +29,30 @@ leagues: two futsal and two outdoor.
 
 The app isn't on the App Store.
 
+## Screenshots
+
+Every screenshot here uses fictional teams, players and scores; none of it is real match
+data. Light and dark mode are both supported.
+
+<table>
+<tr>
+<td align="center"><img src="screenshots/light/12-live-home-possession.png" width="190" alt="Live tab"><br><sub>Live capture</sub></td>
+<td align="center"><img src="screenshots/light/04-summary-top.png" width="190" alt="Summary with pressure index"><br><sub>Pressure index</sub></td>
+<td align="center"><img src="screenshots/light/05-goal-map.png" width="190" alt="Goal Map"><br><sub>Goal Map</sub></td>
+<td align="center"><img src="screenshots/light/08-goal-placement.png" width="190" alt="Placing a goal"><br><sub>Placing a goal</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="screenshots/dark/12-live-home-possession.png" width="190" alt="Live tab, dark mode"></td>
+<td align="center"><img src="screenshots/dark/04-summary-top.png" width="190" alt="Summary, dark mode"></td>
+<td align="center"><img src="screenshots/dark/05-goal-map.png" width="190" alt="Goal Map, dark mode"></td>
+<td align="center"><img src="screenshots/dark/08-goal-placement.png" width="190" alt="Placing a goal, dark mode"></td>
+</tr>
+</table>
+
+The full sets are in [`screenshots/light`](screenshots/light) and
+[`screenshots/dark`](screenshots/dark), including the
+[WhatsApp share image](screenshots/light/10-share-image.png).
+
 ## What it tracks
 
 - **Goal timeline** — timestamps like `11:37 1-5` (based on kickoff time you set)
