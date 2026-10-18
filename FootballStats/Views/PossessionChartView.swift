@@ -25,6 +25,9 @@ struct PossessionChartView: View {
     var onGoalTap: ((GoalChartMarker) -> Void)?
     /// Fires when a big save's slot in the credited row is tapped — `nil` leaves it inert.
     var onSaveTap: ((ShotTickMarker) -> Void)?
+    /// Fires when a goal's ball on the pressure line is tapped, to place the goal on the
+    /// pitch (`GoalPlacementSheet`). `nil` leaves the ball purely visual, as in the share image.
+    var onGoalBallTap: ((GoalChartMarker) -> Void)?
 
     init(
         points: [PressureChartPoint],
@@ -34,7 +37,8 @@ struct PossessionChartView: View {
         avatarImage: ((UUID) -> UIImage?)? = nil,
         initials: ((UUID) -> String?)? = nil,
         onGoalTap: ((GoalChartMarker) -> Void)? = nil,
-        onSaveTap: ((ShotTickMarker) -> Void)? = nil
+        onSaveTap: ((ShotTickMarker) -> Void)? = nil,
+        onGoalBallTap: ((GoalChartMarker) -> Void)? = nil
     ) {
         self.points = points
         self.goalMarkers = goalMarkers
@@ -44,6 +48,7 @@ struct PossessionChartView: View {
         self.initials = initials
         self.onGoalTap = onGoalTap
         self.onSaveTap = onSaveTap
+        self.onGoalBallTap = onGoalBallTap
     }
 
     private func creditedAvatar(for playerID: UUID?) -> UIImage? {
@@ -124,13 +129,15 @@ struct PossessionChartView: View {
                     let ballSize: CGFloat = style == .compact ? 10 : 14
                     let offset: CGFloat = showsDecorations ? 19 : 12
 
-                    // Purely visual — crediting now happens from the row below, not here,
-                    // so the ball on the pressure line stays a single plain circle.
+                    // Crediting happens from the row below, not here, so the ball stays a single
+                    // plain circle. Tapping it opens the pitch placement sheet instead.
                     GoalBallBadge(
                         team: goal.team,
                         size: ballSize,
                         scoreLabel: showsDecorations ? goal.scoreLabel : nil,
-                        scoreAbove: above
+                        scoreAbove: above,
+                        onTap: onGoalBallTap.map { handler in { handler(goal) } },
+                        accessibilityLabel: "Goal at \(goal.minuteLabel), \(goal.scoreLabel). Place on pitch."
                     )
                     .position(
                         x: anchor.x,
@@ -470,6 +477,9 @@ private struct GoalBallBadge: View {
     let size: CGFloat
     let scoreLabel: String?
     let scoreAbove: Bool
+    /// `nil` keeps the badge inert — no tap target, nothing for VoiceOver to announce.
+    var onTap: (() -> Void)?
+    var accessibilityLabel: String = ""
 
     private var tint: Color {
         // Match the rest of the card: home green, away red. Amber read as a third team.
@@ -498,7 +508,7 @@ private struct GoalBallBadge: View {
         }
     }
 
-    var body: some View {
+    private var badge: some View {
         VStack(spacing: 0) {
             if scoreAbove {
                 score
@@ -507,6 +517,25 @@ private struct GoalBallBadge: View {
                 ball
                 score
             }
+        }
+    }
+
+    var body: some View {
+        if let onTap {
+            // The ball is 14pt; the tap target isn't, per Apple's hit-area guidance. The
+            // clear square is centred on the badge, so the visible layout doesn't move.
+            ZStack {
+                Color.clear
+                    .frame(width: 34, height: 34)
+                    .contentShape(Rectangle())
+                badge
+            }
+            .onTapGesture(perform: onTap)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(accessibilityLabel)
+            .accessibilityAddTraits(.isButton)
+        } else {
+            badge
         }
     }
 }
@@ -735,6 +764,11 @@ struct ComparisonBarsView: View {
 
 @MainActor
 enum PossessionChartRenderer {
+    /// Chart height as a fraction of its width. On screen the Pressure Index chart is 170 pt
+    /// tall on a card about 340 pt wide, and the image keeps that shape — it used to be a fixed
+    /// 330 pt, nearly twice as tall as the chart it was copied from.
+    static let chartHeightRatio: CGFloat = 0.5
+
     static func image(
         points: [PressureChartPoint],
         goalMarkers: [GoalChartMarker],
@@ -745,10 +779,14 @@ enum PossessionChartRenderer {
         homeName: String,
         awayName: String,
         width: CGFloat = 450,
-        chartHeight: CGFloat = 330,
+        chartHeight: CGFloat? = nil,
         avatarImage: ((UUID) -> UIImage?)? = nil,
-        initials: ((UUID) -> String?)? = nil
+        initials: ((UUID) -> String?)? = nil,
+        goalMap: GoalMapSnapshot? = nil
     ) -> UIImage? {
+        // The card is padded 16 on each side, so the chart is `width - 32` wide.
+        let chartHeight = chartHeight ?? (width - 32) * chartHeightRatio
+
         let card = VStack(alignment: .leading, spacing: 10) {
             MatchTeamsLegend(homeName: homeName, awayName: awayName, font: .title3)
 
@@ -788,6 +826,12 @@ enum PossessionChartRenderer {
                 Text("Ticks above and below the chart are attempts — solid is on target, dotted is off target.")
                     .font(.system(size: 10))
                     .foregroundStyle(.secondary)
+            }
+
+            // The Goal Map is part of the Pressure Index card on screen, so it travels with the
+            // card's image. Absent when no goal has been placed.
+            if let goalMap {
+                goalMap.pitchView
             }
 
             if !comparisonStats.isEmpty {

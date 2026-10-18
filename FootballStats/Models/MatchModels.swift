@@ -140,6 +140,78 @@ struct SetPieceEvent: Identifiable, Codable, Equatable {
     }
 }
 
+// MARK: - Goal placement
+
+/// A spot on the pitch in the *scorer's attacking frame*, so the same numbers mean the same
+/// thing for both teams whichever end they happened to be attacking. The Goal Map turns this
+/// into a real pitch position per team (`PitchSpec.groundPoint(of:team:)`).
+///
+/// Stored normalised (0...1) rather than in metres: the app has no idea how big a given
+/// ground's pitch is, and a normalised point survives a futsal/outdoor correction.
+struct PitchPoint: Codable, Equatable {
+    /// Along the pitch: 0 is the scorer's own goal line, 1 is the goal line they attacked.
+    var x: Double
+    /// Across the pitch, as the scorer faces the goal they attack: 0 is their right-hand
+    /// touchline, 1 is their left-hand one.
+    var y: Double
+}
+
+/// Where the ball crossed the goal line, as the shooter saw the goal.
+struct GoalMouthPoint: Codable, Equatable {
+    /// 0 is the left post, 1 is the right post.
+    var x: Double
+    /// 0 is the ground, 1 is the underside of the crossbar.
+    var y: Double
+}
+
+/// The shape of the ball's flight, picked from three because that's all a sideline
+/// recorder can honestly tell apart.
+enum ShotTrajectory: String, Codable, CaseIterable, Identifiable {
+    case straight
+    case arc
+    case high
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .straight: "Straight"
+        case .arc: "Arc"
+        case .high: "High ball"
+        }
+    }
+}
+
+/// Where a goal came from, where it went in, and how it got there. Optional on the shot —
+/// a goal is complete without it, it just doesn't appear on the Goal Map.
+struct ShotPlacement: Codable, Equatable {
+    var origin: PitchPoint
+    var goalMouth: GoalMouthPoint
+    var trajectory: ShotTrajectory
+}
+
+/// What the Goal Map's pitch is drawn to look like. Never blue — that read as a screenshot of
+/// someone else's court — so a choice of two: the grass the outdoor games are played on, or the
+/// light wooden floor of an indoor court.
+enum GoalMapSurface: String, Codable, CaseIterable, Identifiable {
+    case grass
+    case court
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .grass: "Grass"
+        case .court: "Court"
+        }
+    }
+
+    /// What a match gets until someone picks otherwise: futsal is played indoors.
+    static func standard(for format: GameFormat) -> GoalMapSurface {
+        format == .futsal ? .court : .grass
+    }
+}
+
 /// A goal, derived from the shot that scored it rather than stored alongside it.
 /// The `id` is the scoring shot's, so SwiftUI identity stays stable across reads.
 struct GoalEvent: Identifiable, Codable, Equatable {
@@ -148,12 +220,21 @@ struct GoalEvent: Identifiable, Codable, Equatable {
     let matchSeconds: Int
     /// Threaded through from the scoring `ShotEvent` — see `MatchState.goals`.
     let creditedPlayerID: UUID?
+    /// Threaded through from the scoring `ShotEvent` the same way as the credit.
+    let placement: ShotPlacement?
 
-    init(id: UUID = UUID(), team: TeamSide, matchSeconds: Int, creditedPlayerID: UUID? = nil) {
+    init(
+        id: UUID = UUID(),
+        team: TeamSide,
+        matchSeconds: Int,
+        creditedPlayerID: UUID? = nil,
+        placement: ShotPlacement? = nil
+    ) {
         self.id = id
         self.team = team
         self.matchSeconds = matchSeconds
         self.creditedPlayerID = creditedPlayerID
+        self.placement = placement
     }
 }
 
@@ -168,6 +249,10 @@ struct ShotEvent: Identifiable, Codable, Equatable {
     /// exists for the team. Old backups decode this as `nil` automatically (synthesized
     /// `Codable`, no migration needed for a new `Optional` property).
     var creditedPlayerID: UUID?
+    /// Where this shot was taken from and where it went in — only ever set on a goal, from
+    /// the Summary tab's pressure chart. Old backups decode this as `nil` for the same
+    /// reason as `creditedPlayerID`.
+    var placement: ShotPlacement?
 
     init(
         id: UUID = UUID(),
@@ -175,7 +260,8 @@ struct ShotEvent: Identifiable, Codable, Equatable {
         difficulty: ShotDifficulty,
         outcome: ShotOutcome,
         matchSeconds: Int,
-        creditedPlayerID: UUID? = nil
+        creditedPlayerID: UUID? = nil,
+        placement: ShotPlacement? = nil
     ) {
         self.id = id
         self.team = team
@@ -183,6 +269,7 @@ struct ShotEvent: Identifiable, Codable, Equatable {
         self.outcome = outcome
         self.matchSeconds = matchSeconds
         self.creditedPlayerID = creditedPlayerID
+        self.placement = placement
     }
 }
 
@@ -260,6 +347,14 @@ struct MatchState: Codable, Equatable {
     /// Which interpretation rules this recording was made under. Never rewrite on load —
     /// only mint `MatchRulesVersion.current` when creating a new match.
     var rulesVersion: Int
+    /// Goal Map view settings, saved with the match because they describe how *this* match was
+    /// filmed and where it was played. `goalMapFlipped` turns the map half a turn (the camera
+    /// stood on the opposite touchline, so home attack right-to-left); futsal has no half
+    /// times, so one angle holds for the whole game. Neither changes any stored placement —
+    /// those live in the scorer's attacking frame — only how the map is drawn.
+    var goalMapFlipped: Bool
+    /// `nil` follows the game format (`GoalMapSurface.standard(for:)`).
+    var goalMapSurface: GoalMapSurface?
 
     init(
         homeTeamName: String,
@@ -275,8 +370,12 @@ struct MatchState: Codable, Equatable {
         currentPossession: TeamSide = .home,
         possessionBaseline: TeamSide = .home,
         possessionBaselineSeconds: Int = 0,
-        rulesVersion: Int = MatchRulesVersion.current
+        rulesVersion: Int = MatchRulesVersion.current,
+        goalMapFlipped: Bool = false,
+        goalMapSurface: GoalMapSurface? = nil
     ) {
+        self.goalMapFlipped = goalMapFlipped
+        self.goalMapSurface = goalMapSurface
         self.homeTeamName = homeTeamName
         self.awayTeamName = awayTeamName
         self.kickoffDate = kickoffDate
@@ -293,6 +392,10 @@ struct MatchState: Codable, Equatable {
         self.rulesVersion = rulesVersion
     }
 
+    var resolvedGoalMapSurface: GoalMapSurface {
+        goalMapSurface ?? .standard(for: gameFormat)
+    }
+
     /// Every goal is a shot that went in, so the scoring shots *are* the score.
     /// Keeping a parallel goal array let the two drift apart: deleting a goal in the
     /// history editor once dropped a match to 2-2 while its shots still read 3-2.
@@ -300,7 +403,15 @@ struct MatchState: Codable, Equatable {
         shots
             .filter { $0.outcome == .goal }
             .sorted { $0.matchSeconds < $1.matchSeconds }
-            .map { GoalEvent(id: $0.id, team: $0.team, matchSeconds: $0.matchSeconds, creditedPlayerID: $0.creditedPlayerID) }
+            .map {
+                GoalEvent(
+                    id: $0.id,
+                    team: $0.team,
+                    matchSeconds: $0.matchSeconds,
+                    creditedPlayerID: $0.creditedPlayerID,
+                    placement: $0.placement
+                )
+            }
     }
 
     enum CodingKeys: String, CodingKey {
@@ -318,6 +429,8 @@ struct MatchState: Codable, Equatable {
         case possessionBaseline
         case possessionBaselineSeconds
         case rulesVersion
+        case goalMapFlipped
+        case goalMapSurface
     }
 
     /// Keys this app no longer writes but still has to read.
@@ -352,6 +465,8 @@ struct MatchState: Codable, Equatable {
         possessionBaselineSeconds = try container.decodeIfPresent(Int.self, forKey: .possessionBaselineSeconds) ?? 0
         // Pre-stamping backups were all recorded under today's rules.
         rulesVersion = try container.decodeIfPresent(Int.self, forKey: .rulesVersion) ?? 1
+        goalMapFlipped = try container.decodeIfPresent(Bool.self, forKey: .goalMapFlipped) ?? false
+        goalMapSurface = try container.decodeIfPresent(GoalMapSurface.self, forKey: .goalMapSurface)
 
         Self.reconcileLegacyGoals(from: decoder, into: &shots)
     }

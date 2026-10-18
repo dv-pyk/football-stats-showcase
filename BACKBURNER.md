@@ -213,6 +213,50 @@ add testers.
 
 ---
 
+## Goal Map follow-ups
+
+**Status:** built 2026-10-18 (Goal Map section inside the Pressure Index card + placement sheet
+— see `SUMMARY_CHANGELOG.md`), **not yet confirmed on-device**. Everything below was left out
+on purpose to keep the first version to what was asked for.
+
+Decided in the first version:
+
+- **One entry point:** tap a goal's ⚽ on the Pressure Index chart. No capture on the Live
+  tab — that screen is for the match, not for plotting (`LIVE_SCREEN_PRINCIPLES.md`).
+- **Goals only.** `placement` lives on `ShotEvent` so it *could* hold any attempt, but only
+  goals can be placed and drawn.
+- **All three details are required to save** (origin, goal-mouth point, flight), so a placed
+  goal is always drawable. Flight defaults to Straight.
+- **Stored normalised, in the scorer's attacking frame** — never metres, since pitch sizes
+  vary. Pitches drawn are a standard 105×68 (outdoor) or 32×20 (futsal — a bar shorter at each
+  end than regulation, because the courts played on are short), not the real ground.
+- **Camera angle is a half-turn, not a mirror.** Flip rotates the map 180° (camera on the
+  other touchline); a left-right mirror would swap every shooter's left and right. It is a
+  per-match setting (`MatchState.goalMapFlipped`), not a global one.
+- **Surface is grass or indoor court — never blue** (the navy first tried read as a
+  screenshot of someone else's court). Per match (`goalMapSurface`), defaulting by format.
+- **The map travels with the Pressure Index card's image** (copy and WhatsApp), but only when
+  at least one goal is placed, so unplaced matches share the image they always did.
+- **Away goals are placeable too** (red); only home goals can carry a name, because only the
+  home team has a roster.
+
+### Open
+
+- Plot non-goal attempts (saves, misses) as a shot map? Data model already allows it; the
+  open question is whether sideline taps can cope with placing every attempt.
+- A Live-tab shortcut straight after a goal, if tapping the ball later proves too easy to forget.
+- The basketball reference's **Replay** (animate arcs in match order) and **Half court**
+  (zoom to one end) — not built.
+- Outdoor games with half times: the map always draws home attacking one way, so a second-half
+  goal at the other end is drawn as if attacked the same way. Fine for a flat picture; a
+  per-half flip would need half-time to be recorded.
+- Flight shapes are three fixed curves scaled by distance; a keeper-facing "dip" or swerve
+  would need a fourth option.
+
+**Captured:** 2026-10-18.
+
+---
+
 ## Shipped / resolved
 
 Archive of entries whose status resolved to shipped, or whose open questions all got

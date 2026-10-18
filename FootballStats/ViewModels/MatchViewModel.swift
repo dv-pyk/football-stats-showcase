@@ -269,6 +269,25 @@ final class MatchViewModel: ObservableObject {
         }, recordEvent: true)
     }
 
+    /// Records where a goal was shot from and where it went in, or clears it (`placement: nil`).
+    /// `id` is the scoring `ShotEvent`'s id; same caller-persists contract as `creditShot`.
+    func placeShot(id: UUID, placement: ShotPlacement?) {
+        applyMatchChange({ match in
+            guard let index = match.shots.firstIndex(where: { $0.id == id }) else { return }
+            match.shots[index].placement = placement
+        }, recordEvent: true)
+    }
+
+    /// Goal Map view settings — saved with the match (`MatchState.goalMapFlipped`), so the
+    /// caller persists a reviewed history match the same way as for `placeShot`.
+    func setGoalMapFlipped(_ flipped: Bool) {
+        applyMatchChange({ $0.goalMapFlipped = flipped }, recordEvent: true)
+    }
+
+    func setGoalMapSurface(_ surface: GoalMapSurface) {
+        applyMatchChange({ $0.goalMapSurface = surface }, recordEvent: true)
+    }
+
     // MARK: - Set pieces
 
     func recordSetPiece(_ kind: SetPieceKind) {

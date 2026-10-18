@@ -7,6 +7,14 @@ enum HapticFeedback {
         generator.impactOccurred()
     }
 
+    /// The faintest tick, for placing or choosing something — the Goal Map's pickers use it so a
+    /// tap on the pitch is felt without competing with the heavier `record()` of a real event.
+    static func selection() {
+        let generator = UISelectionFeedbackGenerator()
+        generator.prepare()
+        generator.selectionChanged()
+    }
+
     /// A light tick the instant a press-and-hold registers, so the gesture is felt to have
     /// started before its progress fill has visibly moved.
     static func holdStarted() {

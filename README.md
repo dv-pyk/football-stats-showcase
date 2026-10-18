@@ -91,6 +91,7 @@ Dark mode, on an iPhone.
 - **Match history** — past matches are saved automatically, browsable by home team, editable, and exportable/importable as a backup file (Files / iCloud Drive)
 - **Hands-free possession changes** — a Control Center control and an Action Button-assignable Shortcut both record "possession changed" without unlocking the phone or touching the screen
 - **Player credit** — set up your own team's roster (photo, name, jersey number, optional initials) from New Match, then credit goals and big saves to a player — immediately on the Live tab, or any time afterward from the Summary tab's pressure chart; a player with no photo shows their initials instead, everywhere a face would otherwise appear
+- **Goal map** — tap a goal's ⚽ on the Summary tab's pressure chart to record where the shot was taken from, where in the goal it went, and its flight (straight, arc or high ball); every placed goal is then drawn as an arc on an isometric pitch inside the Pressure Index card. **Flip** it to match the camera angle a game was filmed from (futsal has no half times), switch the surface between grass and a light wooden indoor court, and turn on **Names** to label credited scorers
 - **Standout moments** — keeper performances, goal bursts, long pass streaks, and comebacks get called out automatically on the Summary tab, with separate thresholds for Outdoor vs Futsal games (Futsal runs shorter and scores much faster)
 - **WhatsApp export** — one tap shares a summary image (score, pressure chart, possession, shot comparisons, credited faces) plus a short text of standout moments and match observations
 
@@ -135,7 +136,7 @@ Requires an Apple Developer account ($99/year). Build an archive in Xcode and di
    green/red corner glow for a win or loss, neutral for a draw), edit a saved match, or use
    **Export Backup** / **Import Backup** to move match data (and team rosters, including
    player photos) via Files or iCloud Drive.
-5. **Summary tab** — review the goal timeline, pressure index chart, standout moments, per-team shot breakdown, and observations (each individually copyable), then tap **Copy / Share for WhatsApp** to send the summary image and text together. Along the bottom of the pressure chart, every home goal and big save gets a slot — a face once credited, an empty ring you can tap to credit it (or change who's credited) any time.
+5. **Summary tab** — review the goal timeline, pressure index chart with its goal map, standout moments, per-team shot breakdown, and observations (each individually copyable), then tap **Copy / Share for WhatsApp** to send the summary image and text together. Along the bottom of the pressure chart, every home goal and big save gets a slot — a face once credited, an empty ring you can tap to credit it (or change who's credited) any time. Tap a goal's ⚽ on the pressure line itself to place it on the **Goal Map** under the chart (same card).
 
 ## What gets shared
 
@@ -182,6 +183,7 @@ FootballStats/
     ├── PressureLaneView.swift / PressureLedgerView.swift / PressureNarration.swift
     ├── RosterEditorView.swift / PlayerEditorView.swift / PlayerCreditPickerView.swift
     ├── SummaryView.swift
+    ├── GoalMapView.swift / GoalMapGeometry.swift / GoalPlacementSheet.swift
     ├── MatchHistoryView.swift
     ├── MatchHistoryEditView.swift
     ├── PossessionChartView.swift

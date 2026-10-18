@@ -28,6 +28,9 @@
 		A10000010000000000000077 /* PlayerEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000077 /* PlayerEditorView.swift */; };
 		A10000010000000000000078 /* PlayerCreditPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000078 /* PlayerCreditPickerView.swift */; };
 		A10000010000000000000079 /* StandoutMomentEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000079 /* StandoutMomentEngine.swift */; };
+		A10000010000000000000080 /* GoalMapGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000080 /* GoalMapGeometry.swift */; };
+		A10000010000000000000081 /* GoalMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000081 /* GoalMapView.swift */; };
+		A10000010000000000000082 /* GoalPlacementSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000082 /* GoalPlacementSheet.swift */; };
 		A10000010000000000000063 /* SetPieceIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000063 /* SetPieceIcons.swift */; };
 		A10000010000000000000064 /* NeonShotIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000064 /* NeonShotIcons.swift */; };
 		A10000010000000000000068 /* SetPieceArtIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000068 /* SetPieceArtIcons.swift */; };
@@ -113,6 +116,9 @@
 		A10000020000000000000077 /* PlayerEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEditorView.swift; sourceTree = "<group>"; };
 		A10000020000000000000078 /* PlayerCreditPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCreditPickerView.swift; sourceTree = "<group>"; };
 		A10000020000000000000079 /* StandoutMomentEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandoutMomentEngine.swift; sourceTree = "<group>"; };
+		A10000020000000000000080 /* GoalMapGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalMapGeometry.swift; sourceTree = "<group>"; };
+		A10000020000000000000081 /* GoalMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalMapView.swift; sourceTree = "<group>"; };
+		A10000020000000000000082 /* GoalPlacementSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPlacementSheet.swift; sourceTree = "<group>"; };
 		A10000020000000000000063 /* SetPieceIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPieceIcons.swift; sourceTree = "<group>"; };
 		A10000020000000000000064 /* NeonShotIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonShotIcons.swift; sourceTree = "<group>"; };
 		A10000020000000000000068 /* SetPieceArtIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPieceArtIcons.swift; sourceTree = "<group>"; };
@@ -262,6 +268,9 @@
 				A10000020000000000000076 /* RosterEditorView.swift */,
 				A10000020000000000000077 /* PlayerEditorView.swift */,
 				A10000020000000000000078 /* PlayerCreditPickerView.swift */,
+				A10000020000000000000080 /* GoalMapGeometry.swift */,
+				A10000020000000000000081 /* GoalMapView.swift */,
+				A10000020000000000000082 /* GoalPlacementSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -444,6 +453,9 @@
 				A10000010000000000000077 /* PlayerEditorView.swift in Sources */,
 				A10000010000000000000078 /* PlayerCreditPickerView.swift in Sources */,
 				A10000010000000000000079 /* StandoutMomentEngine.swift in Sources */,
+				A10000010000000000000080 /* GoalMapGeometry.swift in Sources */,
+				A10000010000000000000081 /* GoalMapView.swift in Sources */,
+				A10000010000000000000082 /* GoalPlacementSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

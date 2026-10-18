@@ -11,6 +11,9 @@ struct SummaryView: View {
     var savedMatchID: UUID?
     @State private var sharePayload: SharePayload?
     @State private var creditRequest: ChartCreditRequest?
+    /// The goal whose ball was tapped on the pressure chart — presents `GoalPlacementSheet`.
+    @State private var placementRequest: GoalChartMarker?
+    @State private var showsGoalNames = false
 
     /// Presenting from the payload rather than a separate boolean. With
     /// `sheet(isPresented:)` the content closure reads state captured before the tap's
@@ -64,7 +67,7 @@ struct SummaryView: View {
                     if !viewModel.match.passes.isEmpty || !viewModel.match.shots.isEmpty || !viewModel.match.goals.isEmpty {
                         SummaryCopyableCard(
                             title: "Pressure Index",
-                            copyText: viewModel.pressureIndexCopyText(),
+                            copyText: pressureCardCopyText,
                             cardWidth: cardWidth,
                             customImage: pressureChartImage
                         ) {
@@ -103,9 +106,19 @@ struct SummaryView: View {
                                     },
                                     onSaveTap: { tick in
                                         creditRequest = .bigSave(tick)
+                                    },
+                                    onGoalBallTap: { goal in
+                                        placementRequest = goal
                                     }
                                 )
-                                .frame(height: 240)
+                                // Shorter than it was: the Goal Map below now shares this card, and
+                                // the line only has to show the shape of the match.
+                                .frame(height: 170)
+
+                                if !viewModel.match.goals.isEmpty {
+                                    Divider()
+                                    goalMapSection
+                                }
 
                                 if !viewModel.comparisonStats.isEmpty {
                                     Divider()
@@ -175,6 +188,97 @@ struct SummaryView: View {
             )
             .presentationDetents([.medium, .large])
         }
+        .sheet(item: $placementRequest) { goal in
+            GoalPlacementSheet(
+                marker: goal,
+                spec: pitchSpec,
+                homeLabel: TeamDisplayNames.short(viewModel.match.homeTeamName),
+                awayLabel: TeamDisplayNames.short(viewModel.match.awayTeamName),
+                scorerName: GoalMapLabels.scorerName(for: goal, playerName: playerName),
+                surface: viewModel.match.resolvedGoalMapSurface,
+                flipped: viewModel.match.goalMapFlipped,
+                onSave: { placement in placeGoal(id: goal.id, placement: placement) }
+            )
+            .presentationDetents([.large])
+        }
+    }
+
+    private var pitchSpec: PitchSpec {
+        PitchSpec.make(for: viewModel.match.gameFormat)
+    }
+
+    private func playerName(_ id: UUID) -> String? {
+        rosterStore.player(withID: id)?.name
+    }
+
+    /// Saves (or clears) where a goal was shot from — same shape as `creditShot`: the shot
+    /// is mutated through the view model, then a reviewed history match is written back.
+    private func placeGoal(id: UUID, placement: ShotPlacement?) {
+        viewModel.placeShot(id: id, placement: placement)
+        persistReviewedMatch()
+    }
+
+    /// The Goal Map inside the Pressure Index card. Flip and surface are saved with the match
+    /// (`MatchState.goalMapFlipped` / `goalMapSurface`) — a reviewed history match is written
+    /// back, like a placement, so the view is the same next time it's opened.
+    private var goalMapSection: some View {
+        GoalMapSection(
+            markers: viewModel.goalChartMarkers,
+            spec: pitchSpec,
+            surface: viewModel.match.resolvedGoalMapSurface,
+            flipped: viewModel.match.goalMapFlipped,
+            homeLabel: TeamDisplayNames.short(viewModel.match.homeTeamName),
+            awayLabel: TeamDisplayNames.short(viewModel.match.awayTeamName),
+            playerName: playerName,
+            showsNames: $showsGoalNames,
+            onFlip: {
+                viewModel.setGoalMapFlipped(!viewModel.match.goalMapFlipped)
+                persistReviewedMatch()
+            },
+            onSurfaceChange: { surface in
+                viewModel.setGoalMapSurface(surface)
+                persistReviewedMatch()
+            }
+        )
+    }
+
+    private func persistReviewedMatch() {
+        if let savedMatchID {
+            historyStore?.updateMatch(id: savedMatchID, match: viewModel.match)
+        }
+    }
+
+    /// The map as the copy image and WhatsApp share draw it — only once at least one goal is
+    /// placed, so a match with nothing placed shares exactly the image it always did.
+    private func goalMapSnapshot() -> GoalMapSnapshot? {
+        let placed = viewModel.goalChartMarkers.filter { $0.placement != nil }
+        guard !placed.isEmpty else { return nil }
+
+        return GoalMapSnapshot(
+            spec: pitchSpec,
+            shots: placed.map { marker in
+                GoalMapShot(
+                    marker: marker,
+                    label: showsGoalNames ? GoalMapLabels.pillLabel(for: marker, playerName: playerName) : nil
+                )
+            },
+            surface: viewModel.match.resolvedGoalMapSurface,
+            flipped: viewModel.match.goalMapFlipped,
+            homeLabel: TeamDisplayNames.short(viewModel.match.homeTeamName),
+            awayLabel: TeamDisplayNames.short(viewModel.match.awayTeamName)
+        )
+    }
+
+    /// The score line, plus one line per placed goal when there are any.
+    private var pressureCardCopyText: String {
+        let goalLines = GoalMapLabels.copyText(
+            markers: viewModel.goalChartMarkers,
+            homeName: chartLabels.home,
+            awayName: chartLabels.away,
+            playerName: playerName
+        )
+        let base = viewModel.pressureIndexCopyText()
+        return goalLines.isEmpty ? base : "\(base)\n\n\(goalLines)"
     }
 
     /// Catch-up crediting from the chart tap (goal or big save) — same underlying mutation
@@ -220,7 +324,8 @@ struct SummaryView: View {
             homeName: labels.home,
             awayName: labels.away,
             avatarImage: { rosterStore.avatarImage(for: $0) },
-            initials: { rosterStore.player(withID: $0)?.displayInitials }
+            initials: { rosterStore.player(withID: $0)?.displayInitials },
+            goalMap: goalMapSnapshot()
         )
     }
 

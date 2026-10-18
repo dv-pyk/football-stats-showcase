@@ -479,7 +479,8 @@ enum PressureEngine {
                     pressureValue: value(at: goal.matchSeconds, events: events),
                     homeScore: homeScore,
                     awayScore: awayScore,
-                    creditedPlayerID: goal.creditedPlayerID
+                    creditedPlayerID: goal.creditedPlayerID,
+                    placement: goal.placement
                 )
             }
     }
@@ -613,6 +614,9 @@ struct GoalChartMarker: Identifiable {
     let homeScore: Int
     let awayScore: Int
     let creditedPlayerID: UUID?
+    /// Where the goal came from and went in, once the recorder has placed it — the Goal Map
+    /// on the Summary tab draws from this.
+    let placement: ShotPlacement?
 
     var scoreLabel: String { "\(homeScore)-\(awayScore)" }
 

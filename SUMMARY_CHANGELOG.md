@@ -16,6 +16,48 @@ commit log allows, not from memory.
 
 ---
 
+## Unreleased — 2026-10-18
+
+- **New: "Goal Map", inside the Pressure Index card.** Under the pressure chart, every
+  *placed* goal is drawn as a neon arc on an isometric pitch (home green, away red). Nothing
+  existing was recalculated: this is a new view over new data, so no pressure, possession or
+  comparison figure moves, and matches recorded before this change show "None placed yet".
+- **Pressure chart made shorter** (240 → 170 pt tall) to make room: it only has to show the
+  shape of the match, and the map now shares its card. (The WhatsApp image follows the same
+  proportion — see below.)
+- **New data, entered from the pressure chart.** Tapping a goal's ⚽ on the chart opens a
+  sheet with three answers — where the shot was taken from (tap a flat pitch), where in the
+  goal it went (tap the goal face), and a flight of Straight, Arc or High ball — with a live
+  isometric preview. Stored as an optional `placement` on the scoring `ShotEvent`
+  (normalised 0–1 coordinates in the scorer's attacking frame), so old backups decode
+  unchanged and goals without a placement are still counted everywhere else.
+- **Flip.** A **Flip** control turns the map half a turn — the camera on the other touchline,
+  so home attack right-to-left — because futsal has no half times and the map should match
+  the angle the match was filmed from. It is a rotation, not a mirror, so a shooter's left
+  and right stay true, and it moves no stored placement. Saved with the match
+  (`goalMapFlipped`), so a reviewed match opens the way it was set.
+- **Surface: grass or indoor court — no blue.** A greenish-brown grass or a light wooden
+  floor, chosen with the surface control and saved with the match (`goalMapSurface`). Until
+  chosen, futsal matches use the court and outdoor matches use grass.
+- **Futsal pitch drawn shorter:** 32 m (8 bars) instead of a regulation 40 m (10 bars) — one
+  bar off each half, since the courts played on are short. Outdoor stays 105×68. Standard
+  proportions, not measurements of any real ground.
+- **Names.** When at least one placed goal has a credited scorer, a **Names** control labels
+  each arc's starting point with that player ("Alex K."); goals with no credit (every away
+  goal) show their minute instead. Off by default — it's the busy view.
+- **Copy and share now include the map.** The Pressure Index card's copy-image and the
+  WhatsApp share image carry the map under the chart *when at least one goal is placed* —
+  with nothing placed, the map is simply absent. The card's copied text gains a line per
+  placed goal ("12' (1-0) Alex — top left, arc").
+- **In the image, the map has no dark box.** On screen the pitch sits in a dark frame that
+  suits the app; on the image's white page it read as a black slab, so the exported map is
+  drawn straight onto white — dark goal frames, deeper green/red team labels, a gentler glow
+  — and the empty band above the pitch is trimmed to just what the arcs need.
+- **In the image, the pressure chart now keeps the on-screen shape.** It was a fixed 330 pt
+  tall (nearly twice the on-screen chart); it is now half its width — the same proportion as
+  the 170 pt chart on a ~340 pt card — so the curve reads as it does in the app. This changes
+  the WhatsApp image for *every* match, placed goals or not: the image is shorter than it was.
+
 ## Unreleased — 2026-09-20
 
 - **Possession % — opening spell no longer seeded from the wrong team.** The stretch from
