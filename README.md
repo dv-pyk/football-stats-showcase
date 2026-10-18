@@ -31,27 +31,54 @@ The app isn't on the App Store.
 
 ## Screenshots
 
-Every screenshot here uses fictional teams, players and scores; none of it is real match
-data. Light and dark mode are both supported.
+Every team, player and score in these images is fictional; none of it is real match data.
+
+### The shareable image
+
+The point of the Summary tab is the **Copy image** button on each card: one tap puts a clean
+image on the clipboard, ready to paste into WhatsApp. These are real outputs of that button
+(always on white, whatever theme the phone is in). The Pressure Index card is the headline: the
+score, possession, a time-decayed pressure chart with credited scorers, and the Goal Map, for an
+outdoor match on grass and a futsal match on the court.
 
 <table>
 <tr>
-<td align="center"><img src="screenshots/light/12-live-home-possession.png" width="190" alt="Live tab"><br><sub>Live capture</sub></td>
-<td align="center"><img src="screenshots/light/04-summary-top.png" width="190" alt="Summary with pressure index"><br><sub>Pressure index</sub></td>
-<td align="center"><img src="screenshots/light/05-goal-map.png" width="190" alt="Goal Map"><br><sub>Goal Map</sub></td>
-<td align="center"><img src="screenshots/light/08-goal-placement.png" width="190" alt="Placing a goal"><br><sub>Placing a goal</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="screenshots/dark/12-live-home-possession.png" width="190" alt="Live tab, dark mode"></td>
-<td align="center"><img src="screenshots/dark/04-summary-top.png" width="190" alt="Summary, dark mode"></td>
-<td align="center"><img src="screenshots/dark/05-goal-map.png" width="190" alt="Goal Map, dark mode"></td>
-<td align="center"><img src="screenshots/dark/08-goal-placement.png" width="190" alt="Placing a goal, dark mode"></td>
+<td align="center"><img src="screenshots/copy-image/pressure-index.png" width="400" alt="Pressure Index image for an outdoor match"><br><sub>Outdoor match</sub></td>
+<td align="center"><img src="screenshots/copy-image/pressure-index-futsal.png" width="400" alt="Pressure Index image for a futsal match"><br><sub>Futsal match</sub></td>
 </tr>
 </table>
 
-The full sets are in [`screenshots/light`](screenshots/light) and
-[`screenshots/dark`](screenshots/dark), including the
-[WhatsApp share image](screenshots/light/10-share-image.png).
+The other cards copy the same way, as text or as an image:
+
+<table>
+<tr>
+<td align="center"><img src="screenshots/copy-image/goal-timeline.png" width="260" alt="Goal timeline"></td>
+<td align="center"><img src="screenshots/copy-image/standout-moments.png" width="260" alt="Standout moments"></td>
+<td align="center"><img src="screenshots/copy-image/shots-away.png" width="260" alt="Shot breakdown"></td>
+</tr>
+</table>
+
+### In the app
+
+Dark mode, on an iPhone.
+
+<table>
+<tr>
+<td align="center"><img src="screenshots/app/09-live-possession-home.png" width="250" alt="Live tab"><br><sub>Live capture</sub></td>
+<td align="center"><img src="screenshots/app/04-summary.png" width="250" alt="Summary tab"><br><sub>Summary</sub></td>
+<td align="center"><img src="screenshots/app/05-goal-map.png" width="250" alt="Goal Map on grass"><br><sub>Goal Map</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="screenshots/app/06-goal-placement.png" width="250" alt="Placing a goal"><br><sub>Placing a goal</sub></td>
+<td align="center"><img src="screenshots/app/07-goal-map-futsal-court.png" width="250" alt="Goal Map on the futsal court"><br><sub>Futsal court</sub></td>
+<td align="center"><img src="screenshots/app/08-live-possession-away.png" width="250" alt="Live tab with the opposition in possession"><br><sub>Opposition in possession</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="screenshots/app/03-history.png" width="250" alt="Match history"><br><sub>History</sub></td>
+<td align="center"><img src="screenshots/app/01-new-match.png" width="250" alt="New match"><br><sub>New match</sub></td>
+<td align="center"><img src="screenshots/app/02-roster.png" width="250" alt="Roster"><br><sub>Roster</sub></td>
+</tr>
+</table>
 
 ## What it tracks
 
